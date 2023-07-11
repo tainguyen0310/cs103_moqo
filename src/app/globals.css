@@ -25,3 +25,18 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.custom_bg{
+  background-image: url('../../public/home.jpg');
+}
+
+
+.border-search-btn{
+  border-color: rgb(253 224 71);
+}
+
+.border-search-btn:hover{
+  border-color: rgb(234 179 8);
+  box-shadow: 0 5px 25px -5px rgb(254 249 195);
+  transform: translateY(-5px);
+}
