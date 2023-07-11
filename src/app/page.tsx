@@ -6,7 +6,7 @@ import SearchButton from "@/components/Button/SearchButton";
 import "tailwindcss/tailwind.css"
 export default function Home() {
   return (
-    <main className="bg-cover bg-center h-screen custom_bg">
+    <main className="bg-cover bg-center min-h-screen custom_bg">
       {/* <Navbar /> */}
       <Navbar/>
       <div className="flex flex-col justify-center items-center h-screen">
