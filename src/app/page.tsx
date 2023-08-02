@@ -11,7 +11,7 @@ export default function Home() {
       <Navbar/>
       <div className="flex flex-col justify-center items-center h-screen">
         <div>
-          <h2 className="text-yellow-300 text-6xl font-bold text-center my-10">
+          <h2 className="text-yellow-200 text-6xl font-bold text-center my-10">
             MOQO
           </h2>
           <p className="text-white text-2xl font-bold text-center mb-2 mt-10">
@@ -21,7 +21,7 @@ export default function Home() {
             <Searchbar />
           </div>
           <div className="flex justify-center mt-16 ">
-            <div className="border-2  rounded-full bg-gradient border-search-btn w-1/3 hover:">
+            <div className="border-2  rounded-full bg-gradient border-search-btn w-1/3">
               <SearchButton />
             </div>
           </div>
@@ -30,3 +30,4 @@ export default function Home() {
     </main>
   );
 }
+
