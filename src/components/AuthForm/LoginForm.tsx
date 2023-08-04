@@ -1,26 +1,40 @@
 'use client' //
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState,FormEvent } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const LoginForm = (props: any) => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-    
-    const handleLogin = async () => {
-        try {
-            const response = await axios.post("/api/login", { username, password });
-            // Assuming the server returns a successful login response
-            if (response.data.success) {
-                // Perform any necessary logic for successful login
-            } else {
-                setError("Invalid credentials");
-            }
-        } catch (error) {
-            setError("An error occurred");
+    const [formData, setFormData] = useState({ email: "", password: "" });
+    const [error, setError] = useState({ email: "", password: "" });
+    const [loading, setLoding] = useState<Boolean>(false);
+    const router= useRouter();
+    const HandleSumbit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setLoding(true);
+        let hasError = false;
+        if (!formData.email) {
+            setError((prevError) => ({ ...prevError, email: "Email is required" }));
+            hasError = true;
+          }
+        
+        if (!formData.password) {
+            setError((prevError) => ({ ...prevError, password: "Password is required" }));
+            hasError = true;
+          }
+        
+        if (hasError) {
+            return;
         }
-    };
+          try {
+        
+            // If login is successful, navigate to the home page
+            router.push("/"); // Replace "/" with your actual home page route
+          } catch (error) {
+            // If login fails, display an error message
+            setError((prevError) => ({ ...prevError, email: "Invalid credentials" }));
+          }
+    }
 
     // const handleLogout = async () => {
     //     try {
@@ -36,23 +50,23 @@ const LoginForm = (props: any) => {
 
     return(
         // login form
-        <form className="flex flex-col justify-center items-center">
+        <form className="flex flex-col justify-center items-center" onSubmit={HandleSumbit}>
                 <div className="flex flex-col justify-center items-center my-1">
                     <input className="rounded-full px-4 py-2 w- bg-white bg-inherit text-black outline-none" type="text" 
-                    value = {username}
-                    onChange = {(e)=> setUsername(e.target.value)}
-                    placeholder="Username" />
+                    onChange={(e)=> setFormData({...formData, email: e.target.value})}
+                    placeholder="name@company.com" />
+                    {error.email && <p className="text-red-500 mt-1">{error.email}</p>}
                 </div>
                 <div className="flex flex-col justify-center items-center my-1">
                     <input className="rounded-full px-4 py-2 w-64 bg-white bg-inherit text-black outline-none" type="password" 
-                    value = {password}
-                    onChange = {(e)=> setPassword(e.target.value)}
-                    placeholder="Password" />
+                    onChange = {(e)=> setFormData({...formData, password: e.target.value})}
+                    placeholder="••••••••" />
+                     {error.password && <p className="text-red-500 mt-1">{error.password}</p>}
                 </div>
                 <div className="flex justify-center mt-4">
                     <div className="border-2 rounded-full bg-gradient border-login-btn w-64 flex items-center justify-center">
-                        <button className="rounded-full px-4 py-2 bg-inherit text-white font-bold" type="button"
-                        onClick={handleLogin}>Login</button>
+                        <button className="rounded-full px-4 py-2 bg-inherit text-white font-bold" type="submit"
+                        >Login</button>
                     </div>
                 </div>
                 <div className="flex justify-center mt-4">
