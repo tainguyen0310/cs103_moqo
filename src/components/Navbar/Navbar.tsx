@@ -16,10 +16,10 @@ const Navbar = () => {
                             <Link href="/" className="font-bold text-yellow-300">Home</Link>
                         </li>
                         <li className="mr-4 pl-4">
-                            <Link href="/ranking" className="hover:text-yellow-300">Ranking</Link>
+                            <Link href="/pages/ranking" className="hover:text-yellow-300">Ranking</Link>
                         </li>
                         <li className="mr-4 pl-4">
-                            <Link href="/profile" className="hover:text-yellow-300">My Profile</Link>
+                            <Link href="/pages/profile" className="hover:text-yellow-300">My Profile</Link>
                         </li>
                                 
                     </ul>
@@ -29,7 +29,7 @@ const Navbar = () => {
                     <button className="bg-transparent text-white font-semibold py-2 px-4 rounded shadow hover:text-yellow-300">
                         <div className="flex">
                             <Image className="h-4 w-4 mr-2 my-auto" src={PopcornIcon} alt="Popcorn Icon"/>
-                            <Link href="/auth/login">Login</Link>
+                            <Link href="/pages/auth/login">Login</Link>
                         </div>
                     </button>
                 </div>

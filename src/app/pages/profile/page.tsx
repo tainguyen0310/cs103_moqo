@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Image from "next/image";
-import MaleImage from "../../../public/male.png";
+import MaleImage from "../../../../public/male.png";
 //create profile page
 export default function Profile() {
   const profile = {
