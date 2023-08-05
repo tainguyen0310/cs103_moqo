@@ -8,6 +8,7 @@ const Navbar = () => {
     return(
         <div>
             <nav className="flex items-center justify-between bg-gradient p-6">
+            <div className="flex py-2 px-4 text-yellow-200 text-xl font-bold font-sans my-3">MOQO</div>
                 <div className="flex items-center flex-shrink-0 flex-grow justify-center text-white mx-auto">
                     <ul className="flex items-center justify-betweeen">
                         <li className="mr-4 pl-4">
