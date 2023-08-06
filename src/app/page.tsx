@@ -11,11 +11,7 @@ export default function Home() {
       <Navbar/>
       <div className="flex flex-col justify-center items-center" style={{ height: '75vh' }}>
         <div>
-<<<<<<< Updated upstream
-          <h2 className="text-yellow-300 text-6xl font-bold text-center my-10">
-=======
           <h2 className="text-yellow-200 font-sans text-6xl font-bold text-center my-10">
->>>>>>> Stashed changes
             MOQO
           </h2>
           <p className="text-white text-2xl font-bold text-center mb-2 mt-10">
