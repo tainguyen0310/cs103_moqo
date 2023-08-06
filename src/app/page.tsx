@@ -9,9 +9,9 @@ export default function Home() {
     <main className="bg-cover bg-center min-h-screen custom_bg">
       {/* <Navbar /> */}
       <Navbar/>
-      <div className="flex flex-col justify-center items-center h-screen">
+      <div className="flex flex-col justify-center items-center" style={{ height: '75vh' }}>
         <div>
-          <h2 className="text-yellow-200 text-6xl font-bold text-center my-10">
+          <h2 className="text-yellow-200 font-sans text-6xl font-bold text-center my-10">
             MOQO
           </h2>
           <p className="text-white text-2xl font-bold text-center mb-2 mt-10">

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Image from "next/image";
 import MaleImage from "../../../../public/male.png";
+
 //create profile page
 export default function Profile() {
   const profile = {
@@ -18,7 +19,7 @@ export default function Profile() {
           className="lg:flex overflow-hidden shadow-lg border-2"
           style={{
             borderRadius: "20px", 
-            marginTop: "5rem"// Border radius
+            //marginTop: "5rem"// Border radius
           }}>
             <div className="px-16 pt-10 bg-white">
               <div
