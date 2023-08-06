@@ -50,6 +50,7 @@ const LoginForm = (props: any) => {
 
     return(
         //login form
+
         <form className="flex flex-col justify-center items-center" onSubmit={HandleSumbit}>
                 <div className="flex flex-col justify-center items-center my-1">
                     <input className="rounded-full px-4 py-2 w- bg-white bg-inherit text-black outline-none" type="text" 
@@ -74,8 +75,6 @@ const LoginForm = (props: any) => {
                     <Link href="/pages/auth/register" className="text-yellow-200 font-bold px-1 text-sm">Sign Up</Link>
                 </div>
         </form>
-
-
     );
 };
 

@@ -21,7 +21,7 @@ export default function Home() {
             <Searchbar />
           </div>
           <div className="flex justify-center mt-16 ">
-            <div className="border-2  rounded-full bg-gradient border-search-btn w-1/3 hover:">
+            <div className="border-2  rounded-full bg-gradient border-search-btn w-1/3">
               <SearchButton />
             </div>
           </div>
@@ -30,3 +30,4 @@ export default function Home() {
     </main>
   );
 }
+
