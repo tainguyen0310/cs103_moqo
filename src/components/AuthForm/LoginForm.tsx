@@ -2,6 +2,8 @@
 import Link from "next/link";
 import React, { useState,FormEvent } from "react";
 import axios from "axios";
+import { useMutation, gql } from "@apollo/client";
+import {LOGIN_USER,LoginData,LoginVariables} from "@/api/auth/login";
 import { useRouter } from "next/navigation";
 
 const LoginForm = (props: any) => {
@@ -9,6 +11,11 @@ const LoginForm = (props: any) => {
     const [error, setError] = useState({ email: "", password: "" });
     const [loading, setLoding] = useState<Boolean>(false);
     const router= useRouter();
+    const [login, {data}] = useMutation<LoginData,LoginVariables>(LOGIN_USER, {
+        onCompleted: (data) => {
+          console.log(data);
+        },
+      });
     const HandleSumbit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setLoding(true);
@@ -29,6 +36,12 @@ const LoginForm = (props: any) => {
           try {
         
             // If login is successful, navigate to the home page
+            await login({
+                variables: {
+                  email: formData.email,
+                  password: formData.password,
+                },  
+              });
             router.push("/"); // Replace "/" with your actual home page route
           } catch (error) {
             // If login fails, display an error message
