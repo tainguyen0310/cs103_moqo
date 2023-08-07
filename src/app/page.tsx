@@ -1,9 +1,11 @@
 import React from "react"
 // import Footer from "@/components/Footer/footer"
 import Navbar from "@/components/Navbar/Navbar"
-import Searchbar from "@/components/SearchBar/Search"
-import SearchButton from "@/components/Button/SearchButton";
+import SearchForm from "@/components/SearchForm/SearchForm"
 import "tailwindcss/tailwind.css"
+
+
+
 export default function Home() {
   return (
     <main className="bg-cover bg-center min-h-screen custom_bg">
@@ -17,14 +19,7 @@ export default function Home() {
           <p className="text-white text-2xl font-bold text-center mb-2 mt-10">
             Unleash Your Movie Obsession: Find Your Perfect Flick
           </p>
-          <div className="flex justify-center border-2 rounded-full bg-gradient">
-            <Searchbar />
-          </div>
-          <div className="flex justify-center mt-16 ">
-            <div className="border-2  rounded-full bg-gradient border-search-btn w-1/3">
-              <SearchButton />
-            </div>
-          </div>
+          <SearchForm/>
         </div>
       </div>
     </main>

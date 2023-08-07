@@ -1,7 +1,14 @@
+"use client";
 import React from "react";
 import LoginForm from "@/components/AuthForm/LoginForm";
+import { ApolloProvider } from "@apollo/client"; 
+import client from "@/api/apollo"; 
+import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
 export default function Login(){
+    loadDevMessages();
+    loadErrorMessages();
     return(
+        <ApolloProvider client={client}>
         <div className="bg-cover bg-center min-h-screen login_bg">
             <div className="flex flex-col justify-center items-center h-screen">
                 <div>
@@ -15,5 +22,6 @@ export default function Login(){
                 </div>
             </div>
         </div>
+        </ApolloProvider>
     );
 }

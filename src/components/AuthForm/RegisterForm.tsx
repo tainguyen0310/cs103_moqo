@@ -1,16 +1,36 @@
 'use client' //
 import Link from "next/link";
-import React, { useState,FormEvent } from "react";
+import React, { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import { useMutation, gql } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client"; // Import ApolloProvider
+import { REGISTER_USER, RegisterData, RegisterVariables } from "@/api/auth/register";
+import client  from "@/api/apollo"; // Replace with your Apollo Client instance import
 
 const RegisterForm = (props: any) => {
-    const router= useRouter();
-    const [formData, setFormData] = useState({name:"", email: "",phone :"", password: "", confirmPassword:"",  });
-    const [error, setError] = useState({name:"", email: "",phone :"", password: "", confirmPassword:"",  });
-    const [loading, setLoding] = useState<Boolean>(false);
-    const [passwordMatch, setPasswordMatch] = useState<Boolean>(true);
-    
-    const HandleSumbit = async (event: FormEvent<HTMLFormElement>) => {
+  const router = useRouter();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [error, setError] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [loading, setLoding] = useState<Boolean>(false);
+  const [registerUser, {data}] = useMutation<RegisterData, RegisterVariables>(REGISTER_USER, {
+    onCompleted: (data) => {
+      console.log(data);
+    },
+  });
+
+  const HandleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setLoding(true);
         
@@ -49,6 +69,16 @@ const RegisterForm = (props: any) => {
         }
         try {
             // If login is successful, navigate to the home page
+            // create User
+            // await registerUser({
+            //     variables: {
+            //         name: formData.name,
+            //         email: formData.email,
+            //         phone: formData.phone,
+            //         password: formData.password,
+            //     },
+            // });
+            console.log(formData);
             router.push("/"); // Replace "/" with your actual home page route
         } catch (error) {
             // If login fails, display an error message
@@ -57,7 +87,7 @@ const RegisterForm = (props: any) => {
     };
     return(
         //register form
-        <form className="flex flex-col justify-center items-center" onSubmit={HandleSumbit}>
+            <form className="flex flex-col justify-center items-center" onSubmit={HandleSubmit}>
                 <div className="flex flex-col justify-center items-center my-1">
                     <input className="rounded-full px-4 py-2 w- bg-white bg-inherit text-black outline-none" type="text" 
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -111,6 +141,7 @@ const RegisterForm = (props: any) => {
                     <Link href="/pages/auth/login" className="text-yellow-200 font-bold px-1 text-sm">Sign In</Link>
                 </div>
         </form>
+        
     );
 };
 

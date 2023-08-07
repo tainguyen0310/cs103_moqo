@@ -3,7 +3,7 @@
     title: string;
     dir: string;
     year: string;
-    poster: string;
+    posterPath: string;
     rank: string;
   };
 
@@ -12,12 +12,12 @@
       <div className="mt-3 mb-3 relative flex w-full h-[280px] max-w-[40rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
       <div className="relative m-0 w-1/3 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
         <img
-          src= {movie.poster} 
+          src= {movie.posterPath} 
           alt="movie-poster" 
           className="h-full w-50 object-cover"
         />
       </div>
-      <div className="p-8 pl-0 pt-5">
+      <div className="p-8 pl-5 pt-5">
         <h3 className="block font-sans text-4xl font-bold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
           #{movie.rank}
         </h3>
