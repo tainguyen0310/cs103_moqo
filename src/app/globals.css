@@ -40,3 +40,20 @@ body {
   box-shadow: 0 5px 25px -5px rgb(254 249 195);
   transform: translateY(-5px);
 }
+
+.login_bg{
+  background-image: url('../../public/login.png');
+}
+
+.border-login-btn{
+  border-color:white;
+}
+.border-login-btn:hover{
+  border-color: rgb(255, 255, 255);
+  box-shadow: 0 5px 25px -5px rgb(255, 255, 255);
+  transform: translateY(-5px);
+}
+
+.register_bg{
+  background-image: url('../../public/register.png');
+}
